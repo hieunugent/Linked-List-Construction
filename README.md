@@ -13,12 +13,45 @@
   - removing given nodes and removing node with specific value
   - searching for node with value should return boolean.
  # Function
- - Method Set Head :
+ - Method Set Head
+    - if there is no node in the list we will add the node to the head and tail also that nodes
+    - if there is head is not null using the function insertBefore to add the node before the current head
  - set Tail
+    - if tail is also null then do same at SetHead, so we call SetHead
+    - if not using the insertAfter to insert the node after the current tail;
  - insertBefore
+    - with two parameter node and nodeToInsert
+    - if there is nothing to insert return
+    - clean up the node to inserting
+    - binding the node insert to position that we want
+        - nodeToInsert will point the prev to the current Node previous
+        - node insert point to the next will point to current node
+    - if the current node prev is null head will be assign as nodeToInsert to detach the head to the old node
+    - else  detach the previous node with the old nodes
+    - assign the current node point to prev to the nodeToInsert
  - insertAfter
+    - same as the insert before but reverse the pointing
+    - the prev of nodeToInsert will point to node and the next of nodeToInsert wil point to the node.next
+    - if the node.next is null , nodeToInsert will be Tail
+    else just attach the node.next.prev to the nodeToInsert
+    - node.next will assign to nodeToInsert;
  - insertAtPosition
+    - check position value if it is 1 insert at the Head
+    - count the position until it match the position given by loop then insertBefore the nodeToInsert to the current node that just iterate. since the node is push the current node to one more pos, so that why have to using insertBefore
  - removeNodesWithValue
+   - parameter is value of any node or random
+   - search the list to consider if there is node exit
+   - using loop to iterate all node in List
+    - create a new container to pointer to current value of node and  move to other node
+    - if the current node is have the value, remove the node by call the remove funtion on the current node
+
  - remove
+   - the node if that node is head node detach the node by assign the node to the next node
+   - if the node is tail detach the node by assign the node to the previous node
+   - else call the removeBindNode which will remove the node in between
  - containsNodeWithValue
  - removeBindNode
+   - this for any node in between which will properly will not head or Tail
+   - if the previous node is not null , node previous point to next  assign as node.next
+   - if the node.next is not null, node.next.prev will assign as node.prev;
+   - remove the node by assign node.next = null and node.prev = null
